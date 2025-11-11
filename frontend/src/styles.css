@@ -1,0 +1,153 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  padding: 5px 20px 40px;
+  box-sizing: border-box;
+}
+
+.filters-section {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.filters-section input,
+.filters-section select {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  width: 200px;
+}
+
+.companies-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  height: calc(100vh - 190px);
+
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.companies-list::-webkit-scrollbar {
+  width: 8px;
+}
+.companies-list::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+.companies-list::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.company-card {
+  background: white;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.company-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.button-row {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  font-size: 0.85rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .companies-list {
+    grid-template-columns: repeat(3, 1fr);
+    height: calc(100vh - 200px); 
+  }
+
+  .filters-section input,
+  .filters-section select {
+    width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .companies-list {
+    grid-template-columns: repeat(2, 1fr);
+    height: calc(100vh - 230px);
+  }
+
+  .filters-section input,
+  .filters-section select {
+    width: 160px;
+    font-size: 0.85rem;
+  }
+
+  button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .companies-list {
+    grid-template-columns: repeat(1, 1fr);
+    height: calc(100vh - 250px);
+  }
+
+  .filters-section {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .filters-section input,
+  .filters-section select {
+    width: 100%;
+  }
+
+  .button-row {
+    justify-content: center;
+  }
+
+  button {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+}
